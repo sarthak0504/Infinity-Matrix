@@ -14,7 +14,7 @@ export default function StudentDashboard() {
             <aside className="relative overflow-hidden text-center  rounded-lg py-10">
     <div className="relative z-10 max-w-screen-xl mx-auto px-6 lg:px-8">
         <div className="max-w-3xl space-y-6 mx-auto">
-            <h2 className="text-2xl sm:text-3xl font-semibold text-orange-600 leading-relaxed">
+            <h2 className="text-2xl sm:text-3xl font-semibold text-orange-500 leading-relaxed">
                 Building bridges between students, educators, skill hubs, and industries to create
                 a seamless pipeline of skilled talent!
             </h2>
@@ -65,7 +65,7 @@ export default function StudentDashboard() {
     <h3 className="text-lg font-bold text-black">Online Courses</h3>
     <p className="text-black">Find your path</p>
     <div className="flex-grow"></div> {/* Filler to push the button to the bottom */}
-    <Link to="/online-courses" className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg">
+    <Link to="/online_course" className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg">
       Get Started
     </Link>
   </div>

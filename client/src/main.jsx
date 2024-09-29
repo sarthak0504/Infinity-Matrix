@@ -9,7 +9,8 @@ import About from './components/About/About.jsx'
 import Contact from './components/Contact/Contact.jsx'
 import User from './components/User/User.jsx'
 import Login from './components/Login/Login.jsx'
-// import StudentDashboard from './components/Dashboard/dashboard.jsx'
+import StudentDashboard from './components/Dashboard/dashboard.jsx'
+import CoursesPage from './components/Online_course/online_course.jsx'
 
 // const router = createBrowserRouter([
 //   {
@@ -35,11 +36,12 @@ import Login from './components/Login/Login.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout />}>
-      <Route path='' element={<Login />} />
-      <Route path='home' element={<Home />} />
-      {/* <Route path='' element={<StudentDashboard />} /> */}
-      <Route path='about' element={<About />} />
-      <Route path='contact' element={<Contact />} />
+      <Route path='/login' element={<Login />} />
+      <Route path='/home' element={<Home />} />
+      <Route path='' element={<StudentDashboard />} />
+      <Route path='/about' element={<About />} />
+      <Route path='/contact' element={<Contact />} />
+      <Route path='/online_course' element={<CoursesPage />} />
       <Route path='user/:userid' element={<User />} />
       
     </Route>
