@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react"
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
@@ -10,10 +10,7 @@ import StudentDashboard from './components/Dashboard/dashboard.jsx';
 import CoursesPage from './components/Online_course/online_course.jsx';
 import TrainingProgramme from './components/TrainingProgramme/TrainingProgramme.jsx';
 import LandingPage from './components/Landing/LandingPage.jsx';
-import React from 'react'
-import ReactDOM from 'react-dom/client'
 import './index.css'
-import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
 import CategoryPage from './components/Online_course/course_ category.jsx'
 import VIRTUAL_LAB from './components/Virtual_lab/virtualLab.jsx'
 // const router = createBrowserRouter([

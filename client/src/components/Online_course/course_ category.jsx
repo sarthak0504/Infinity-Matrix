@@ -74,7 +74,7 @@ const CategoryPage = () => {
         {filteredCourses?.map((course) => (
           <div
             key={course.id}
-            className="p-6 bg-white border border-gray-200 rounded-lg shadow hover:shadow-lg transition-all"
+            className="p-6  bg-red-100 border border-gray-200 rounded-lg shadow hover:shadow-lg transition-all"
           >
             <h2 className="text-xl font-semibold mb-2">{course.title}</h2>
             <p className="text-gray-700 mb-4">
