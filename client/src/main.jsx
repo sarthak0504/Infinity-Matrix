@@ -13,6 +13,7 @@ import LandingPage from './components/Landing/LandingPage.jsx';
 import './index.css'
 import CategoryPage from './components/Online_course/course_ category.jsx'
 import VIRTUAL_LAB from './components/Virtual_lab/virtualLab.jsx'
+import OC_UnderDev from "./OC_UnderDev.jsx";
 // const router = createBrowserRouter([
 //   {
 //     path: '/',
@@ -37,7 +38,8 @@ import VIRTUAL_LAB from './components/Virtual_lab/virtualLab.jsx'
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout />}>
-      <Route index element={<LandingPage/>} /> {/* Top-Level Landing Page */}
+      {/* <Route index element={<LandingPage/>} /> Top-Level Landing Page */}
+      <Route path='' element={<LandingPage />} />
       <Route path='/dashboard' element={<StudentDashboard />} />
       <Route path='/about' element={<About />} />
       <Route path='/contact' element={<Contact />} />
@@ -45,6 +47,7 @@ const router = createBrowserRouter(
       <Route path='/online_course' element={<CoursesPage />} />
       <Route path='/online_course/:categoryId' element={<CategoryPage />} />
       <Route path='/virtual_lab' element={<VIRTUAL_LAB />} />
+      <Route path='/udcourse' element={<OC_UnderDev />} />
       <Route path='user/:userid' element={<User />} />
     </Route>
   )
