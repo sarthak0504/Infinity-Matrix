@@ -1,54 +1,101 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-const coursesList = [
-  { id: 1, title: 'Introduction to JavaScript', category: 'Programming' },
-  { id: 2, title: 'Advanced React', category: 'Web Development' },
-  { id: 3, title: 'Python for Data Science', category: 'Data Science' },
-  { id: 4, title: 'Machine Learning Basics', category: 'AI/ML' },
-  { id: 5, title: 'UI/UX Design Principles', category: 'Design' },
-  { id: 6, title: 'Digital Marketing Essentials', category: 'Marketing' },
+// List of categories and their respective courses with descriptions
+const categoryList = [
+  {
+    id: 1,
+    category: 'Programming',
+    description: 'Learn various programming languages and frameworks.',
+    courses: [
+      { id: 101, title: 'Introduction to JavaScript' },
+      { id: 102, title: 'Advanced React' },
+    ],
+  },
+  {
+    id: 2,
+    category: 'Data Science',
+    description: 'Master data analysis and machine learning techniques.',
+    courses: [
+      { id: 201, title: 'Python for Data Science' },
+      { id: 202, title: 'Machine Learning Basics' },
+    ],
+  },
+  {
+    id: 3,
+    category: 'Design',
+    description: 'Explore UI/UX design principles and processes.',
+    courses: [
+      { id: 301, title: 'UI/UX Design Principles' },
+      { id: 302, title: 'Design Thinking Process' },
+    ],
+  },
+  {
+    id: 4,
+    category: 'Marketing',
+    description: 'Understand digital marketing and SEO strategies.',
+    courses: [
+      { id: 401, title: 'Digital Marketing Essentials' },
+      { id: 402, title: 'SEO and Content Strategy' },
+    ],
+  },
 ];
 
 const CoursesPage = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-  const [filteredCourses, setFilteredCourses] = useState(coursesList);
+  const [searchTerm, setSearchTerm] = useState('');
+  const [filteredCategories, setFilteredCategories] = useState(categoryList);
+  const navigate = useNavigate(); // useNavigate hook for navigation
 
-  const handleSearch = (e) => {
-    const query = e.target.value.toLowerCase();
-    setSearchQuery(query);
-    const filtered = coursesList.filter((course) =>
-      course.title.toLowerCase().includes(query)
-    );
-    setFilteredCourses(filtered);
+  // Function to handle search input
+  const handleSearchChange = (e) => {
+    const term = e.target.value.toLowerCase();
+    setSearchTerm(term);
+    if (term) {
+      setFilteredCategories(
+        categoryList.filter((category) =>
+          category.category.toLowerCase().includes(term)
+        )
+      );
+    } else {
+      setFilteredCategories(categoryList);
+    }
+  };
+
+  // Function to handle category click (navigate to category page)
+  const handleCategoryClick = (category) => {
+    navigate(`/online_course/${category.id}`); // Navigate to category page
   };
 
   return (
-    <div className="p-8">
-      <h1 className="text-3xl font-bold mb-6">Online Courses</h1>
+    <div className="p-4 md:p-8">
+      <h1 className="text-2xl md:text-3xl font-bold mb-4 md:mb-6 text-center">
+        Online Courses
+      </h1>
 
       {/* Search Bar */}
-      <input
-        type="text"
-        value={searchQuery}
-        onChange={handleSearch}
-        placeholder="Search courses..."
-        className="p-2 border border-gray-300 rounded mb-4 w-full"
-      />
+      <div className="mb-6 w-full max-w-md mx-auto">
+        <input
+          type="text"
+          placeholder="Search categories..."
+          value={searchTerm}
+          onChange={handleSearchChange}
+          className="p-2 md:p-3 border border-gray-300 rounded-lg w-full"
+        />
+      </div>
 
-      {/* Courses List */}
-      <div>
-        {filteredCourses.length > 0 ? (
-          <ul className="space-y-4">
-            {filteredCourses.map((course) => (
-              <li key={course.id} className="p-4 border border-gray-200 rounded-lg">
-                <h2 className="text-xl font-semibold">{course.title}</h2>
-                <p className="text-gray-600">Category: {course.category}</p>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>No courses found.</p>
-        )}
+      {/* Categories List */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {filteredCategories.map((category) => (
+          <div
+            key={category.id}
+            onClick={() => handleCategoryClick(category)}
+            className="p-4 md:p-6 bg-red-200 hover:bg-gray-300 rounded-lg text-center cursor-pointer text-base md:text-lg font-semibold transition-all transform hover:scale-105"
+            style={{ minHeight: '150px' }} // Adjusted height to accommodate description
+          >
+            <h2 className="text-lg font-bold mb-2">{category.category}</h2>
+            <p className="text-gray-700 text-sm">{category.description}</p> {/* Description added */}
+          </div>
+        ))}
       </div>
     </div>
   );

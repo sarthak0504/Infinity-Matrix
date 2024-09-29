@@ -11,6 +11,8 @@ import User from './components/User/User.jsx'
 import Login from './components/Login/Login.jsx'
 import StudentDashboard from './components/Dashboard/dashboard.jsx'
 import CoursesPage from './components/Online_course/online_course.jsx'
+import CategoryPage from './components/Online_course/course_ category.jsx'
+import VIRTUAL_LAB from './components/Virtual_lab/virtualLab.jsx'
 
 // const router = createBrowserRouter([
 //   {
@@ -42,6 +44,8 @@ const router = createBrowserRouter(
       <Route path='/about' element={<About />} />
       <Route path='/contact' element={<Contact />} />
       <Route path='/online_course' element={<CoursesPage />} />
+      <Route path='/online_course/:categoryId' element={<CategoryPage />} />
+      <Route path='/virtual_lab' element={<VIRTUAL_LAB />} />
       <Route path='user/:userid' element={<User />} />
       
     </Route>
