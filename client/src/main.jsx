@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import App from './App.jsx';
 import './index.css';
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom';
 import Layout from './Layout.jsx'; // Layout with the navbar
@@ -10,11 +9,12 @@ import User from './components/User/User.jsx';
 import StudentDashboard from './components/Dashboard/dashboard.jsx';
 import CoursesPage from './components/Online_course/online_course.jsx';
 import TrainingProgramme from './components/TrainingProgramme/TrainingProgramme.jsx';
+// import Landing from './components/Landing/LandingPage.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout />}>
-      <Route index element={<Landing />} /> {/* Top-Level Landing Page */}
+     {/* /* <Route index element={<Landing />} /> Top-Level Landing Page */}
       <Route path='/dashboard' element={<StudentDashboard />} />
       <Route path='/about' element={<About />} />
       <Route path='/contact' element={<Contact />} />
