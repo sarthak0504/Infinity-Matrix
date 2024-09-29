@@ -11,6 +11,7 @@ import User from './components/User/User.jsx'
 import Login from './components/Login/Login.jsx'
 import StudentDashboard from './components/Dashboard/dashboard.jsx'
 import CoursesPage from './components/Online_course/online_course.jsx'
+import TrainingProgramme from './components/TrainingProgramme/TrainingProgramme.jsx'
 
 // const router = createBrowserRouter([
 //   {
@@ -41,6 +42,7 @@ const router = createBrowserRouter(
       <Route path='' element={<StudentDashboard />} />
       <Route path='/about' element={<About />} />
       <Route path='/contact' element={<Contact />} />
+      <Route path='/training-programs' element={<TrainingProgramme/>} />
       <Route path='/online_course' element={<CoursesPage />} />
       <Route path='user/:userid' element={<User />} />
       
