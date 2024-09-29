@@ -32,11 +32,6 @@ export default function LoginHeader() {
                         id="mobile-menu-2"
                     >
                         <ul className="flex flex-col mt-4 font-medium lg:flex-row lg:space-x-8 lg:mt-0">
-                         
-                           
-                          
-                        
-                            
                         </ul>
                     </div>
                 </div>
