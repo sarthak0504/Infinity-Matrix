@@ -36,7 +36,7 @@ export default function Footer() {
                             <ul className="text-gray-500 font-medium">
                                 <li className="mb-4">
                                     <a
-                                        href="https://github.com/"
+                                        href="https://github.com/sarthak0504/Infinity-Matrix.git"
                                         className="hover:underline"
                                         target="_blank"
                                         rel="noreferrer"

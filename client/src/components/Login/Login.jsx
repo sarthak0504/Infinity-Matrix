@@ -2,9 +2,9 @@ import React from 'react'
 import { ArrowRight } from 'lucide-react'
 import { useNavigate } from 'react-router-dom'
 export default function Login() {
-    const navigate = useNavigate();
+const navigate = useNavigate();
 const goToHomePage = () => {
-  navigate('/home')
+  navigate('/dashboard')
 }
   return (
     <section>
@@ -16,7 +16,6 @@ const goToHomePage = () => {
                             className="mr-3 h-[100px]"
                             alt="Vision Logo"
                         />
-        
           </div>
          
 
