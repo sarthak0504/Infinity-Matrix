@@ -6,7 +6,6 @@ import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } 
 import About from './components/About/About.jsx';
 import Contact from './components/Contact/Contact.jsx';
 import User from './components/User/User.jsx';
-import Login from './components/Login/Login.jsx';
 import StudentDashboard from './components/Dashboard/dashboard.jsx';
 import Landing from './components/Landing/LandingPage.jsx';
 import Layout from './Layout.jsx'; // Layout with the navbar
@@ -16,7 +15,6 @@ const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path='/' element={<Layout />}>
       <Route index element={<Landing />} /> {/* Top-Level Landing Page */}
-      <Route path='/login' element={<Login />} /> {/* Top-Level Login Page */}
       <Route path='/dashboard' element={<StudentDashboard />} />
       <Route path='/about' element={<About />} />
       <Route path='/contact' element={<Contact />} />
