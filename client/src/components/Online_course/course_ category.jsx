@@ -82,7 +82,8 @@ const CategoryPage = () => {
             </p>
             <div className="mt-auto">
               <a
-                href={`/course/${course.id}`}
+                // href={`/course/${course.id}`}
+                href={`/udcourse`}
                 className="inline-block px-4 py-2 bg-blue-500 text-white font-medium rounded-lg hover:bg-blue-600 transition"
                 style={{ marginTop: '20px' }} // Margin from description
               >

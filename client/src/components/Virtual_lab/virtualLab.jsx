@@ -25,7 +25,7 @@ export default function VIRTUAL_LAB() {
                         <h3 className="text-lg font-bold text-black">VISUAL LEARNING</h3>
                         <p className="text-black">Interactive visuals and animations for enhanced concept understanding</p>
                     </div>
-                    <Link to="/visual-learning" className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg">
+                    <Link to="/udcourse" className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg">
                         DIVE IN
                     </Link>
                 </div>
@@ -41,7 +41,7 @@ export default function VIRTUAL_LAB() {
                         <h3 className="text-lg font-bold text-black">CODING PLATFORM</h3>
                         <p className="text-black">Interactive platform for coding practice with real-time feedback</p>
                     </div>
-                    <Link to="/coding-platform" className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg">
+                    <Link to="/udcourse" className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg">
                         DIVE IN
                     </Link>
                 </div>
@@ -57,7 +57,7 @@ export default function VIRTUAL_LAB() {
                         <h3 className="text-lg font-bold text-black">SIMULATOR</h3>
                         <p className="text-black">Interactive platform for exploring and manipulating geometric shapes</p>
                     </div>
-                    <Link to="/simulator" className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg">
+                    <Link to="/udcourse" className="mt-4 bg-blue-500 text-white px-4 py-2 rounded-lg">
                         DIVE IN
                     </Link>
                 </div>
