@@ -16,13 +16,10 @@ export default {
           '50%': { textShadow: '0 0 15px rgba(255, 255, 255, 1)' },
           '100%': { textShadow: '0 0 5px rgba(255, 255, 255, 0.7)' },
         },
-      },
-      animation: {
-        maple: 'maple 0.8s ease-out',
-        fadeIn: 'fadeIn 1s ease-in-out',
-        glow: 'glow 2.5s infinite alternate',
-      },
-      keyframes: {
+        blink: {  // Add the blink keyframe here
+          '0%, 100%': { opacity: '1' },
+          '50%': { opacity: '0.5' },
+        },
         fillText: {
           '0%': { width: '0%' },
           '100%': { width: '100%' },
@@ -31,7 +28,13 @@ export default {
           '0%': { transform: 'scale(0.95)', opacity: 0 },
           '100%': { transform: 'scale(1)', opacity: 1 },
         },
-      }      
+      },
+      animation: {
+        maple: 'maple 0.8s ease-out',
+        fadeIn: 'fadeIn 1s ease-in-out',
+        glow: 'glow 2.5s infinite alternate',
+        blink: 'blink 1.5s infinite', // Add the blink animation here
+      },
     },
   },
   plugins: [],

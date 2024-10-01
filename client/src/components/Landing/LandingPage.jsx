@@ -7,26 +7,26 @@ const LandingPage = () => {
   const [showLogin, setShowLogin] = useState(false);
   const [isFilling, setIsFilling] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
+  const [showBlinkText, setShowBlinkText] = useState(true); // New state to control blinking text
 
   useEffect(() => {
     const handleScroll = () => {
       const position = window.scrollY;
-
-      // Trigger filling the welcome text when scrolling starts
+      
       if (position > 0 && !isFilling) {
         setIsFilling(true);
+        setShowBlinkText(false); // Hide blinking text when scrolling starts
       }
-
-      // Show login form when user scrolls past 60% of the viewport height
+      
       if (position > window.innerHeight * 0.5) {
-        setShowLogin(true);
+        setShowLogin(true); // Show login form after scrolling halfway
       }
-
-      setScrollPosition(position);
+      
+      setScrollPosition(position); // Capture scroll position for other elements
     };
-
+  
     window.addEventListener('scroll', handleScroll);
-
+  
     return () => {
       window.removeEventListener('scroll', handleScroll);
     };
@@ -36,7 +36,6 @@ const LandingPage = () => {
     navigate('/dashboard');
   };
 
-  // Calculate the transition class based on scroll position
   const transitionClass =
     scrollPosition > window.innerHeight * 0.5
       ? 'bg-white text-black border border-gray-300'
@@ -46,36 +45,63 @@ const LandingPage = () => {
     <div style={{ height: '200vh', backgroundColor: 'black' }}>
       {/* Hero Section */}
       <section className="h-screen flex flex-col justify-center items-center text-center text-white bg-gradient-to-br from-gray-800 to-gray-900">
-        <h1 className={`text-5xl font-bold transition-opacity duration-1000 ${isFilling ? 'opacity-100' : 'opacity-0'}`}>
+        {/* Blinking text when landing */}
+        {showBlinkText && (
+          <p className="animate-blink text-2xl font-semibold">
+            Scroll down to explore!!
+          </p>
+        )}
+
+        <h1
+          className={`text-5xl font-bold transition-opacity duration-1000 ${
+            isFilling ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
           <span className={`inline-block ${isFilling ? 'animate-fillText' : ''}`}>
             Welcome to VISION
           </span>
         </h1>
-        <p className={`mt-4 text-xl transition-opacity duration-1000 delay-200 ${isFilling ? 'opacity-100' : 'opacity-0'}`}>
+        <p
+          className={`mt-4 text-xl transition-opacity duration-1000 delay-200 ${
+            isFilling ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
           Vocational Integration System for Industry-Oriented Nurturing
         </p>
-        <p className={`mt-8 text-lg transition-opacity duration-1000 delay-300 ${isFilling ? 'opacity-100' : 'opacity-0'}`}>
-          Scroll down to explore
+        <p
+          className={`mt-8 text-lg transition-opacity duration-1000 delay-300 ${
+            isFilling ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <span className="animate-blink">Scroll down to explore</span>
         </p>
-        <p className={`mt-4 text-lg transition-opacity duration-1000 delay-400 ${isFilling ? 'opacity-100' : 'opacity-0'}`}>
+        <p
+          className={`mt-4 text-lg transition-opacity duration-1000 delay-400 ${
+            isFilling ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
           Keep scrolling to reach the login page!
         </p>
       </section>
 
       {/* Information Section */}
       <section
-        className={`flex flex-col justify-center items-center text-white p-10 bg-black transform transition-transform duration-700 ease-in-out ${
-          scrollPosition > 100 ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
-        }`}
-      >
-        <h2 className="text-4xl font-bold mb-4">About VISION</h2>
-        <p className="text-lg max-w-xl text-center mb-4">
-          VISION is designed to bridge the gap between vocational training and industry requirements, ensuring that individuals are equipped with the skills necessary for their professional growth.
-        </p>
-        <p className="text-lg max-w-xl text-center">
-          Our platform provides personalized pathways for learners to achieve their career goals through industry partnerships and hands-on training experiences.
-        </p>
-      </section>
+  className={`flex flex-col justify-center items-center text-white p-10 bg-black transform transition-transform duration-700 ease-in-out ${
+    scrollPosition > 100 ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+  }`}
+>
+  <h2 className="text-4xl font-bold mb-4">About VISION</h2>
+  <p className="text-lg max-w-xl text-center mb-4">
+    VISION is designed to bridge the gap between vocational training and industry
+    requirements, ensuring that individuals are equipped with the skills necessary
+    for their professional growth.
+  </p>
+  <p className="text-lg max-w-xl text-center">
+    Our platform provides personalized pathways for learners to achieve their career
+    goals through industry partnerships and hands-on training experiences.
+  </p>
+</section>
+
 
       {/* Increased gap between sections */}
       <div className="h-20" /> {/* Adjust height as needed */}
@@ -94,14 +120,25 @@ const LandingPage = () => {
             </h2>
             <p className="mt-2 text-center text-sm animate-fadeIn delay-700">
               Don't have an account?{' '}
-              <a href="#" className="font-semibold text-gray-400 transition-all duration-200 hover:underline">
+              <a
+                href="#"
+                className="font-semibold text-gray-400 transition-all duration-200 hover:underline"
+              >
                 Create a free account
               </a>
             </p>
-            <form onSubmit={(e) => { e.preventDefault(); goToHomePage(); }} className="mt-8">
+            <form
+              onSubmit={(e) => {
+                e.preventDefault();
+                goToHomePage();
+              }}
+              className="mt-8"
+            >
               <div className="space-y-5">
                 <div>
-                  <label htmlFor="email" className="text-base font-medium">Email address</label>
+                  <label htmlFor="email" className="text-base font-medium">
+                    Email address
+                  </label>
                   <input
                     id="email"
                     className="flex h-10 w-full rounded-md border border-gray-300 bg-gray-700 px-3 py-2 text-sm text-white placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400"
@@ -111,7 +148,9 @@ const LandingPage = () => {
                   />
                 </div>
                 <div>
-                  <label htmlFor="password" className="text-base font-medium">Password</label>
+                  <label htmlFor="password" className="text-base font-medium">
+                    Password
+                  </label>
                   <input
                     id="password"
                     className="flex h-10 w-full rounded-md border border-gray-300 bg-gray-700 px-3 py-2 text-sm text-white placeholder:text-gray-400 focus:outline-none focus:ring-1 focus:ring-gray-400"
