@@ -61,6 +61,7 @@ const LandingPage = () => {
             Welcome to VISION
           </span>
         </h1>
+        
         <p
           className={`mt-4 text-xl transition-opacity duration-1000 delay-200 ${
             isFilling ? 'opacity-100' : 'opacity-0'
@@ -68,6 +69,24 @@ const LandingPage = () => {
         >
           Vocational Integration System for Industry-Oriented Nurturing
         </p>
+        
+        {/* Embedding YouTube video */}
+        <div
+          className={`mt-6 transition-opacity duration-1000 delay-300 ${
+            isFilling ? 'opacity-100' : 'opacity-0'
+          }`}
+        >
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/xHRIMpOrtR0"
+            title="YouTube video player"
+            frameBorder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+          ></iframe>
+        </div>
+
         <p
           className={`mt-8 text-lg transition-opacity duration-1000 delay-300 ${
             isFilling ? 'opacity-100' : 'opacity-0'
@@ -84,23 +103,34 @@ const LandingPage = () => {
         </p>
       </section>
 
+
       {/* Information Section */}
       <section
-  className={`flex flex-col justify-center items-center text-white p-10 bg-black transform transition-transform duration-700 ease-in-out ${
-    scrollPosition > 100 ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
-  }`}
->
-  <h2 className="text-4xl font-bold mb-4">About VISION</h2>
-  <p className="text-lg max-w-xl text-center mb-4">
-    VISION is designed to bridge the gap between vocational training and industry
-    requirements, ensuring that individuals are equipped with the skills necessary
-    for their professional growth.
-  </p>
-  <p className="text-lg max-w-xl text-center">
-    Our platform provides personalized pathways for learners to achieve their career
-    goals through industry partnerships and hands-on training experiences.
-  </p>
-</section>
+        className={`flex flex-col justify-center items-center text-white p-10 bg-black transform transition-transform duration-700 ease-in-out ${
+          scrollPosition > 100 ? 'translate-y-0 opacity-100' : 'translate-y-20 opacity-0'
+        }`}
+      >
+        <h2 className="text-4xl font-bold mb-4">About VISION</h2>
+        <p className="text-lg max-w-xl text-center mb-4">
+          VISION is designed to bridge the gap between vocational training and industry
+          requirements, ensuring that individuals are equipped with the skills necessary
+          for their professional growth.
+        </p>
+        <p className="text-lg max-w-xl text-center">
+          Our platform provides personalized pathways for learners to achieve their career
+          goals through industry partnerships and hands-on training experiences.
+        </p>
+
+        {/* GitHub Link */}
+        <a
+          href="https://github.com/sarthak0504/Infinity-Matrix"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="mt-6 text-orange-400 text-lg underline hover:text-orange-500"
+        >
+          Check out our GitHub repository
+        </a>
+      </section>
 
 
       {/* Increased gap between sections */}
